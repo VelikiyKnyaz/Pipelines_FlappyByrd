@@ -26,6 +26,14 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        // Ensure FirebaseManager exists in the scene automatically
+        if (FindObjectOfType<FirebaseManager>() == null)
+        {
+            GameObject fmObj = new GameObject("FirebaseManager_Auto");
+            fmObj.AddComponent<FirebaseManager>();
+            DontDestroyOnLoad(fmObj);
+        }
     }
 
     private void Start()
