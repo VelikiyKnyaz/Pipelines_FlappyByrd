@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
 
         if (bird != null) bird.Activate();
         if (pipeSpawner != null) pipeSpawner.SetSpawning(true);
+
+        if (FirebaseManager.Instance != null) FirebaseManager.Instance.TrackGameStart();
     }
 
     public void OnBirdDied()
